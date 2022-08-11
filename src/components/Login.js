@@ -22,7 +22,6 @@ export default function Login(){
         loginUser(values).then((res) => {
         setUserInfo(res.data);
         alert("Login com sucesso")
-        console.log(res.data)
         navigate("../subscriptions")
         })
     

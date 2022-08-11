@@ -15,19 +15,21 @@ const rootHtml= document.querySelector(".root");
 export default function Initial(){
 
     const [userInfo, setUserInfo] = useState({});
-
+    const [plans, setPlans] = useState([]);
+    const [plan, setPlan] = useState([]);
+    const [dataPlan, setDataPlan] = useState(null);
+    const [values, setValues] = useState({ membershipId: ``, cardName: '', cardNumber: '', securityNumber: '' , expirationDate: ''});
 return(
-
 <>
 <GlobalStyle />
-<UserContext.Provider value={{ userInfo, setUserInfo}}>
+<UserContext.Provider value={{ userInfo, setUserInfo,plans, setPlans,plan, setPlan,values, setValues,dataPlan, setDataPlan}}>
 <BrowserRouter>
     <Routes>
         <Route path="/" element={<Login />}/>
         <Route path="/sing_up" element={<Registration />} />
         <Route path="/subscriptions" element={<Plans />} />
-        {/*<Route path="/subscriptions/ID_DO_PLANO" element={<Confirmation />} />
-<Route path="/home" element={<Home />} />*/}
+        <Route path="/subscriptions/:id" element={<Confirmation />} />
+        <Route path="/home" element={<Home />} />
     </Routes>
     </BrowserRouter>
     </UserContext.Provider>

@@ -27,10 +27,10 @@ newUser(values).catch((res) => {
 return(
 <Box>
 <Forms onSubmit={(e) => SendForm(e)}>
-    <Campo type="text"  placeholder=" Nome" name='name' onChange={Change} value={values.name} />
-    <Campo type="text"  placeholder=" CPF" name='cpf' onChange={Change}  value={values.cpf} />
-    <Campo type="email"  placeholder=" E-mail" name='email' onChange={Change}  value={values.email} />
-    <Campo type="password"  placeholder=" Senha" name='password'  onChange={Change} value={values.password} />
+    <Input type="text"  placeholder=" Nome" name='name' onChange={Change} value={values.name} />
+    <Input type="text"  placeholder=" CPF" name='cpf' onChange={Change}  value={values.cpf} />
+    <Input type="email"  placeholder=" E-mail" name='email' onChange={Change}  value={values.email} />
+    <Input type="password"  placeholder=" Senha" name='password'  onChange={Change} value={values.password} />
     <button type="submit">
         <p> CADASTRAR</p>
     </button>
@@ -82,7 +82,7 @@ color:white;
 }
 `;
 
-const Campo= styled.input`
+const Input= styled.input`
 display: flex;
 justify-content: center;
 width:100%;

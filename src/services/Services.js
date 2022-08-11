@@ -10,4 +10,19 @@ function loginUser(values) {
     return promise;
 }
 
-  export {newUser,loginUser};
+function getPlans(config){
+    const promise = axios.get(`https://mock-api.driven.com.br/api/v4/driven-plus/subscriptions/memberships`, config);
+    return promise;
+}
+
+function getPlan(id,config){
+    const promise = axios.get(`https://mock-api.driven.com.br/api/v4/driven-plus/subscriptions/memberships/${id}`, config);
+    return promise;
+}
+
+function signPlan(values,config){
+    const promise = axios.post(`https://mock-api.driven.com.br/api/v4/driven-plus/subscriptions`,values, config);
+    return promise;
+}
+
+  export {newUser,loginUser,getPlans,getPlan,signPlan};
