@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Image from "./images/Driven_white.png"
 import { Link,useNavigate } from "react-router-dom";
 import { loginUser } from '../services/Services';
-import { useState,useContext } from "react";
+import { useState,useContext,useEffect } from "react";
 import UserContext from './UserContext';
 
 export default function Login(){
@@ -12,25 +12,50 @@ export default function Login(){
 
     let navigate = useNavigate();
 
-    const Change = (e) => {
-        setValues({ ...values, [e.target.name]: e.target.value });
-    }
 
-    const SendLogin = (e) =>{ 
-        e.preventDefault();
-         
-        loginUser(values).then((res) => {
-        setUserInfo(res.data);
-        alert("Login com sucesso")
-        navigate("../subscriptions")
-        })
+useEffect(()=>{
+if(localStorage.getItem("user") !== null){
+const local = JSON.parse(localStorage.getItem("user"));
+
+loginUser(local).then((res) => {
+    setUserInfo(res.data);
+    if(res.data.membership !==null){
+        navigate("/home")
+    }
+    else{
+        navigate("/subscriptions") 
+    }
+    })
+
+    .catch((res) => {
+    alert(res.response.data.message)
+    })
+}},[])
+
+const Change = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value });
+}
+
+const SendLogin = (e) =>{ 
+ e.preventDefault();
+    loginUser(values).then((res) => {
+    setUserInfo(res.data);
+    localStorage.setItem("user", JSON.stringify(values))
     
-        loginUser(values).catch((res) => {
-     
-        alert(res.response.data.message)
+    if(res.data.membership !==null){
+        navigate("/home")
+    }
+    else{
+        navigate("/subscriptions") 
+    }
+    })
     
-        })
-      }
+    loginUser(values).catch((res) => {
+    alert(res.response.data.message)
+    })
+}
+
+   
     return(
         <Box>
             <img src={Image} alt="Driven-logo"/>

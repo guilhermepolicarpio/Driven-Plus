@@ -19,7 +19,7 @@ newUser(values).then(() => {
     alert("Usuario criado com sucesso!")
 })
 
-newUser(values).catch((res) => {
+.catch((res) => {
     alert(res.response.data.message)
   })
 }

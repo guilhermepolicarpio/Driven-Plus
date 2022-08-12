@@ -2,13 +2,14 @@ import styled from 'styled-components';
 import { useNavigate } from "react-router-dom";
 import UserContext from './UserContext';
 import { useState,useContext,useEffect } from "react";
-import { getPlan, signPlan } from '../services/Services';
+import { getPlan, signPlan,loginUser } from '../services/Services';
 
 export default function Confirmation(){
 
+const [emailPassword, setEmailPassword] = useState({ email: '', password: '' });
 const [isModalVisible, setIsModalVisible]= useState(false);
 const [load, setLoad]= useState(false);
-const { userInfo,plan,setPlan,values, setValues,dataPlan, setDataPlan } = useContext(UserContext);
+const { userInfo,plan,setPlan,values, setValues,dataPlan, setDataPlan,setUserInfo } = useContext(UserContext);
 const navigate = useNavigate();
 
 const config = {
@@ -22,34 +23,33 @@ const Change = (e) => {
     }
 
 useEffect(() => {   
-     
     setLoad(false)
     getPlan(plan,config).then((r) => {
     setDataPlan(r.data)
     setLoad(true)
-
-}
-)
+})
 .catch((r) =>{
-    console.log(r)
+    alert(r)
 });
 },[]);
 
 function sendForm(){
-    values.membershipId=plan
-    console.log(values.membershipId)
-    console.log(values)
-    signPlan(values,config).then((r) => {
-     console.log(r)
-        navigate(`/home`)
-    }
-    )
-    .catch((r) => {
-        console.log(r)
-        navigate(`/home`)
-    }
-    )
-}
+values.membershipId=plan
+
+signPlan(values,config).then((r) => {
+    emailPassword.email=userInfo.email;
+    emailPassword.password=userInfo.password;
+    console.log(emailPassword);
+    loginUser(emailPassword).then((res) => {
+    setUserInfo(res.data);
+    navigate(`/home`)
+    })
+    
+})
+.catch((r) => {
+    alert("Preencha os dados corretamente")
+    setIsModalVisible(!isModalVisible)
+})}
 
 if(load===false){    return "carregando" }
 return(
@@ -118,13 +118,15 @@ return(
 
 const Page = styled.div`
 position: relative;
+height:100%;
+
+ion-icon{
 padding: 15px 0px 0px 15px;
-    ion-icon{
-    color: white;
-    width: 28px;
-    height: 32px;
-    cursor:pointer; 
-    }
+color: white;
+width: 28px;
+height: 32px;
+cursor:pointer; 
+}
 `;
 
 const Box = styled.div`
@@ -160,6 +162,7 @@ color: #FFFFFF;
 font-weight: 400;
 font-size: 16px;
 line-height: 19px;
+padding: 15px 0px 0px 5px;
 }
 `;
 
@@ -176,12 +179,13 @@ color: #FFFFFF;
 font-weight: 400;
 font-size: 16px;
 line-height: 19px;
+padding: 15px 0px 0px 5px;
 }
 `;
 
 const Price= styled.div`
 display: flex;
-padding: 0px 0px 8px 40px;
+padding: 0px 0px 8px 60px;
 h1{
 color: #FFFFFF;
 font-weight: 400;
@@ -194,7 +198,7 @@ const PlanBenefits= styled.div`
 display: flex;
 align-items: center;
 justify-content: flex-start;
-padding: 4px 0px 0px 40px;
+padding: 4px 0px 0px 60px;
 
 h2{
 color: #FFFFFF;

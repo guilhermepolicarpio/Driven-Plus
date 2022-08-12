@@ -10,7 +10,6 @@ const { plans, setPlans,setPlan } = useContext(UserContext);
 let navigate = useNavigate();
 
 const {userInfo} = useContext(UserContext);
-
 useEffect(() => {   
 const config = {
     headers: {
@@ -20,7 +19,6 @@ const config = {
 
 getPlans(config).then((response) => {
     setPlans([...response.data]);
-
 });
 },[])
 
@@ -28,6 +26,8 @@ function pagePlan(page){
     setPlan(page)
     navigate(`/subscriptions/${page}`)
 }
+
+console.log(userInfo.membership)
 
 return (
 <Box>
@@ -45,10 +45,10 @@ return (
 }
 
 const Box = styled.div`
-padding-top:29px ;
 display: flex;
 flex-direction: column;
 align-items: center;
+height:100%;
 
 h1{
 font-style: normal;
@@ -57,6 +57,7 @@ font-size: 32px;
 line-height: 38px;
 color: #FFFFFF;
 margin-bottom: 25px;
+margin-top: 15px;
 }
 `;
 

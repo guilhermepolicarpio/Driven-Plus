@@ -25,4 +25,9 @@ function signPlan(values,config){
     return promise;
 }
 
-  export {newUser,loginUser,getPlans,getPlan,signPlan};
+function cancelPlan(config){
+    const promise = axios.delete(`https://mock-api.driven.com.br/api/v4/driven-plus/subscriptions`, config);
+    return promise;
+}
+
+  export {newUser,loginUser,getPlans,getPlan,signPlan,cancelPlan};
