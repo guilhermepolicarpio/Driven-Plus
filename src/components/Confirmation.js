@@ -6,10 +6,10 @@ import { getPlan, signPlan,loginUser } from '../services/Services';
 
 export default function Confirmation(){
 
-const [emailPassword, setEmailPassword] = useState({ email: '', password: '' });
+const [emailPassword] = useState({ email: '', password: '' });
 const [isModalVisible, setIsModalVisible]= useState(false);
 const [load, setLoad]= useState(false);
-const { userInfo,plan,setPlan,values, setValues,dataPlan, setDataPlan,setUserInfo } = useContext(UserContext);
+const { userInfo,plan,values, setValues,dataPlan, setDataPlan,setUserInfo } = useContext(UserContext);
 const navigate = useNavigate();
 
 const config = {
@@ -117,11 +117,11 @@ return(
 }
 
 const Page = styled.div`
-position: relative;
+
 height:100%;
 
 ion-icon{
-padding: 15px 0px 0px 15px;
+margin: 15px 0px 0px 15px;
 color: white;
 width: 28px;
 height: 32px;
@@ -130,7 +130,7 @@ cursor:pointer;
 `;
 
 const Box = styled.div`
-padding-top:37px ;
+margin-top:37px ;
 display: flex;
 flex-direction: column;
 align-items: center;

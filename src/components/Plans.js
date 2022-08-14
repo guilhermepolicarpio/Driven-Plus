@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useNavigate } from "react-router-dom";
-import { useState,useContext,useEffect } from "react";
+import { useContext,useEffect } from "react";
 import { getPlans } from '../services/Services';
 import UserContext from './UserContext';
 
@@ -27,7 +27,7 @@ function pagePlan(page){
     navigate(`/subscriptions/${page}`)
 }
 
-console.log(userInfo.membership)
+console.log(userInfo)
 
 return (
 <Box>
@@ -35,7 +35,7 @@ return (
 
     {plans.map((r) =>(
         <Option  key={r.id} onClick={() => pagePlan(r.id)}>
-            <img src={r.image} alt="Plan-Image"/>
+            <img src={r.image} alt="Plan-Img"/>
             <p>{r.price}</p>
         </Option>
     ))}

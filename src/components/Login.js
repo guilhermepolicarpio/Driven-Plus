@@ -8,7 +8,7 @@ import UserContext from './UserContext';
 export default function Login(){
 
     const [values, setValues] = useState({ email: '', password: '' });
-    const { setUserInfo,userInfo } = useContext(UserContext);
+    const { setUserInfo } = useContext(UserContext);
 
     let navigate = useNavigate();
 
@@ -55,7 +55,6 @@ const SendLogin = (e) =>{
     })
 }
 
-   
     return(
         <Box>
             <img src={Image} alt="Driven-logo"/>

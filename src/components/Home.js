@@ -35,7 +35,7 @@ return(
 <Page> 
     <Top>
         <img src={userInfo.membership.image} alt=""/>
-        <ion-icon name="person-circle-outline"></ion-icon>
+        <ion-icon onClick={() => navigate(`/users/${userInfo.id}`)} name="person-circle-outline"></ion-icon>
     </Top>
     <h1>Olá, {userInfo.name}</h1>
 
@@ -115,14 +115,14 @@ justify-content: space-between;
 img{
     width: 74px;
     height: 50px;
-    padding: 32px 0px 0px 48px;
+    padding: 32px 0px 0px 10%;
 }
     ion-icon{
     color: white;
     width: 34px;
     height: 34px;
     cursor:pointer; 
-    padding: 15px 32px 0px 0px;
+    padding: 15px 10% 0px 0px;
     }
 `;
 

@@ -6,6 +6,7 @@ import Login from "./components/Login";
 import Registration from "./components/Registration";
 import Plans from "./components/Plans";
 import Confirmation from "./components/Confirmation";
+import Information from "./components/Information";
 import Home from "./components/Home";
 import UserContext from "./components/UserContext";
 import { useState } from "react";
@@ -30,6 +31,8 @@ return(
         <Route path="/subscriptions" element={<Plans />} />
         <Route path="/subscriptions/:id" element={<Confirmation />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/users/:id" element={<Information />} />
+        
     </Routes>
     </BrowserRouter>
     </UserContext.Provider>
