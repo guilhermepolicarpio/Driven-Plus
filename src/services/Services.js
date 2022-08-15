@@ -35,4 +35,5 @@ function updateUser(values,config){
     return promise;
 }
 
+
   export {newUser,loginUser,getPlans,getPlan,signPlan,cancelPlan,updateUser};
