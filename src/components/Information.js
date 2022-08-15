@@ -9,15 +9,16 @@ export default function Registration(){
     const { userInfo} = useContext(UserContext);    
     let navigate = useNavigate();
     
+
     
     return(
 
 <Box>
 <ion-icon name="arrow-back-sharp" onClick ={() => navigate("/home")} ></ion-icon>
 <Forms >
-    <Input type="text"  placeholder={userInfo.name} name='name' disabled="true"/>
-    <Input type="text"  placeholder={userInfo.cpf} name='cpf' disabled="true"/>
-    <Input type="email"  placeholder={userInfo.email} name='email' disabled="true" />
+    <Input type="text"  placeholder={  userInfo.name} name='name' disabled={true}/>
+    <Input type="text"  placeholder={  userInfo.cpf} name='cpf' disabled={true}/>
+    <Input type="email"  placeholder={  userInfo.email} name='email' disabled={true} />
     <button type="submit" onClick ={() => navigate(`/users/${userInfo.id}/update`)} >
         <p> ATUALIZAR</p>
     </button>
@@ -51,7 +52,7 @@ text-decoration: underline ;
 }
 `;
 
-const Forms = styled.form`
+const Forms = styled.div`
 
 display: flex;
 flex-direction: column;

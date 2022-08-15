@@ -117,11 +117,11 @@ return(
 }
 
 const Page = styled.div`
-
+position: relative;
 height:100%;
 
 ion-icon{
-margin: 15px 0px 0px 15px;
+padding: 15px 0px 0px 15px;
 color: white;
 width: 28px;
 height: 32px;
@@ -130,7 +130,7 @@ cursor:pointer;
 `;
 
 const Box = styled.div`
-margin-top:37px ;
+padding-top:15px ;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -142,6 +142,11 @@ font-weight: 700;
 font-size: 32px;
 line-height: 38px;
 color: #FFFFFF;
+}
+
+img{
+    max-width:30%;
+    max-height: 30%;
 }
 
 ion-icon{
@@ -170,7 +175,7 @@ const PriceBox= styled.div`
 display: flex;
 align-items: center;
 justify-content: flex-start;
-padding: 22px 0px 8px 40px;
+padding: 0px 0px 8px 40px;
 ion-icon{
     color: #FF4791;;
 }
@@ -213,14 +218,14 @@ const Input= styled.input`
 display: flex;
 justify-content: center;
 width:80%;
-height:52px;
+height:42px;
 color: #DBDBDB;
-font-size: 19.976px;
+font-size: 17px;
 line-height: 25px;
 background: #FFFFFF;
 border: 1px solid #D5D5D5;
 border-radius: 8px;
-margin-bottom: 15px;
+margin-bottom: 10px;
 
 `;
 
@@ -230,13 +235,14 @@ display: flex;
 flex-direction: column;
 align-items: center;
 width: 100%;
+margin-top: 20%;
 
 button{
 display: flex;
 justify-content: center;
 align-items: center;
 width: 80%;
-height: 52px;
+height: 42px;
 font-size: 19.976px;
 line-height: 25px;
 border: 1px solid #D5D5D5;
@@ -260,14 +266,14 @@ const InputSecurity= styled.input`
 display: flex;
 justify-content: center;
 width:45%;
-height:52px;
+height:42px;
 color: #DBDBDB;
 font-size: 16px;
 line-height: 25px;
 background: #FFFFFF;
 border: 1px solid #D5D5D5;
 border-radius: 8px;
-margin-bottom: 15px;
+margin-bottom: 10px;
 `;
 
 const Modal= styled.div`

@@ -55,6 +55,9 @@ table {
 	margin: auto;
 	font-family: 'Roboto', sans-serif;
 }
+* {
+  box-sizing: border-box;
+}
 
 `;
 

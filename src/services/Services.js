@@ -30,4 +30,9 @@ function cancelPlan(config){
     return promise;
 }
 
-  export {newUser,loginUser,getPlans,getPlan,signPlan,cancelPlan};
+function updateUser(values,config){
+    const promise = axios.put(`https://mock-api.driven.com.br/api/v4/driven-plus/users/`, values,config);
+    return promise;
+}
+
+  export {newUser,loginUser,getPlans,getPlan,signPlan,cancelPlan,updateUser};

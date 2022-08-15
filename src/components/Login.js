@@ -7,13 +7,14 @@ import UserContext from './UserContext';
 
 export default function Login(){
 
-    const [values, setValues] = useState({ email: '', password: '' });
-    const { setUserInfo } = useContext(UserContext);
+const [values, setValues] = useState({ email: '', password: '' });
+const { setUserInfo } = useContext(UserContext);
 
-    let navigate = useNavigate();
+let navigate = useNavigate();
 
 
 useEffect(()=>{
+    console.log(localStorage.getItem("user"))
 if(localStorage.getItem("user") !== null){
 const local = JSON.parse(localStorage.getItem("user"));
 
