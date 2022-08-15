@@ -158,7 +158,7 @@ const Benefits= styled.div`
 display: flex;
 align-items: center;
 justify-content: flex-start;
-padding: 22px 0px 8px 40px;
+padding: 0px 0px 8px 40px;
 ion-icon{
     color: #FF4791;;
 }
@@ -235,7 +235,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 width: 100%;
-margin-top: 20%;
+
 
 button{
 display: flex;
