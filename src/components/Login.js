@@ -15,7 +15,7 @@ let navigate = useNavigate();
 
 useEffect(()=>{
     console.log(localStorage.getItem("user"))
-if(localStorage.getItem("userr") !== null){
+if(localStorage.getItem("user") !== null){
 const local = JSON.parse(localStorage.getItem("user"));
 
 loginUser(local).then((res) => {
