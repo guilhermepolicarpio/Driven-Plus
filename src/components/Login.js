@@ -15,7 +15,7 @@ let navigate = useNavigate();
 
 useEffect(()=>{
     console.log(localStorage.getItem("user"))
-if(localStorage.getItem("user") !== null){
+if(localStorage.getItem("userr") !== null){
 const local = JSON.parse(localStorage.getItem("user"));
 
 loginUser(local).then((res) => {
@@ -80,7 +80,8 @@ align-items: center;
 
 
 img{
-padding: 134px 0px 100px 0px;
+margin-top: 150px;
+margin-bottom: 50px;
 width: 299px;
 height: 49px;
 }
